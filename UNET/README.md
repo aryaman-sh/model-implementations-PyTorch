@@ -3,8 +3,7 @@
 ## UNET.ipynb
 An exact implementation of UNET in pytorch as specified in https://arxiv.org/abs/1505.04597
 
-![image](/images/model.png)
-
+![image](/UNET/images/model.png)
 
 ## UNET_retain_imageDim.ipynb
 
