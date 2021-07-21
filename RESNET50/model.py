@@ -1,7 +1,6 @@
 """
 Resnet50 implementation
 """
-from ap import block
 import torch
 import torch.nn as nn
 
@@ -59,6 +58,7 @@ class Resnet50(nn.Module):
         self.conv4_x = self.convLayer(6, 256, 2)
         self.conv5_x = self.convLayer(3, 512, 2)
         self.fc = nn.Linear(512*4, num_classes)
+        #self.softmax = nn.Softmax(dim=1) # Dont need softmax with Cross entropy loss
 
     def convLayer(self, num_blocks, mid_channels, stride):
         layers = []
@@ -89,3 +89,11 @@ class Resnet50(nn.Module):
         x = x.reshape(x.shape[0], -1)
         x = self.fc(x)
         return x
+
+def test():
+    model = Resnet50(in_channels=3, num_classes=2)
+    x = torch.randn(1, 3, 224, 224)
+    y = model(x)
+    print(y.size())
+
+test()
