@@ -1,0 +1,1 @@
+model2.py: Replaced average pooling with fc 
